@@ -6,7 +6,7 @@ mv gms_full.mk vendor/gms/
 rm -rf device/generic/opengl-transport
 # Normal build steps
 . build/envsetup.sh
-lunch derp_X00TD-userdebug
+lunch derp_sakura-user
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
@@ -34,7 +34,7 @@ up(){
 
 tg(){
 	bot_api=1640248475:AAHqbtG8_AAvdxQSbMDQ1hPIDcoH4stpW10 # Your tg bot api, dont use my one haha
-	your_telegram_id=$1 # No need to touch
+	your_telegram_id=$1 # No need to touch 
 	msg=$2 # No need to touch
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
 }
