@@ -21,10 +21,10 @@ if [ $a = "yes" ]; then
         time com ccache automated
         time rclone copy automated.tar.gz gdrive:ccache -P
         date +%c
-        sleep 30m
+        sleep 25m
 else
         echo "Skipped Uploading Ccache"
-        sleep 30m
+        sleep 25m
 fi
 done
 

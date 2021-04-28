@@ -2,7 +2,7 @@
 cd /tmp/rom # Depends on where source got synced
 
 curl https://gist.githubusercontent.com/SuperCosmicBeing/c6db35d8abfa480e183a66b71ffca563/raw/3f5f1fc6d02ae767479bda37c04ea417a229f7eb/gms_full.mk >> gms_full.mk
-cd device/qcom/sepolicy-legacy-um/ && curl https://nekobin.com/raw/gosijawipo >> datas.patch && git apply datas.patch && cd /tmp/rom
+cd device/qcom/sepolicy-legacy-um/ && curl https://nekobin.com/raw/gosijawipo >> datas.patch && git apply datas.patch && git status && cd /tmp/rom
 mv gms_full.mk vendor/gms/
 rm -rf device/generic/opengl-transport
 # Normal build steps
