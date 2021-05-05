@@ -2,7 +2,7 @@
 cd /tmp
 mkdir -p ~/.config/rclone
 echo "$rclone_config" > ~/.config/rclone/rclone.conf
-echo "Started upload demon"
+echo "Started upload daemon"
 date +%c
 sleep 30m
 
