@@ -1,9 +1,13 @@
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
 
+#Hacks
 curl https://gist.githubusercontent.com/SuperCosmicBeing/c6db35d8abfa480e183a66b71ffca563/raw/3f5f1fc6d02ae767479bda37c04ea417a229f7eb/gms_full.mk >> gms_full.mk
+cd device/qcom/sepolicy-legacy-um/ && curl https://nekobin.com/raw/gosijawipo >> datas.patch && git apply datas.patch && git status && cd /tmp/rom
+cd system/sepolicy/ && git fetch "https://github.com/LineageOS/android_system_sepolicy" refs/changes/53/289753/1 && git cherry-pick FETCH_HEAD && cd /tmp/rom
 mv gms_full.mk vendor/gms/
 rm -rf device/generic/opengl-transport
+
 # Normal build steps
 . build/envsetup.sh
 lunch derp_sakura-user
