@@ -29,9 +29,9 @@ ls kernel/xiaomi/
 echo "ok!"
 ls hardware/qcom-caf/wlan
 echo "ok!"
-cd hardware/qcom-caf/wlan/ && git remote get-url origin
+cd hardware/qcom-caf/wlan/ && git remote get-url cosmos && git remote
 echo "ok!"
-cd ../msm8996/audio && git remote get-url origin && ls
+cd ../msm8996/audio && git remote get-url cosmos && git remote
 echo "ok!"
 cd /tmp/rom/
 ls vendor/xiaomi
