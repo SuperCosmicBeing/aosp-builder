@@ -2,13 +2,13 @@
 cd /tmp/rom # Depends on where source got synced
 
 #Hacks
-curl https://gist.githubusercontent.com/SuperCosmicBeing/c6db35d8abfa480e183a66b71ffca563/raw/3f5f1fc6d02ae767479bda37c04ea417a229f7eb/gms_full.mk >> gms_full.mk
-mv gms_full.mk vendor/gms/
+#curl https://gist.githubusercontent.com/SuperCosmicBeing/c6db35d8abfa480e183a66b71ffca563/raw/3f5f1fc6d02ae767479bda37c04ea417a229f7eb/gms_full.mk >> gms_full.mk
+#mv gms_full.mk vendor/gms/
 rm -rf device/generic/opengl-transport
 
 # Normal build steps
 . build/envsetup.sh
-lunch derp_sakura-userdebug
+#lunch derp_sakura-userdebug
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
@@ -47,11 +47,11 @@ id=1258887267 # Your telegram id
 # Upload rom zip file if succeed to build! Send notification to tg! And send shell to tg if build fails!
 
 # Let's compile by parts! Coz of ram issue!
-mka api-stubs-docs || echo no problem
-mka system-api-stubs-docs || echo no problem
-mka test-api-stubs-docs || echo no problem
+#mka api-stubs-docs || echo no problem
+#mka system-api-stubs-docs || echo no problem
+#mka test-api-stubs-docs || echo no problem
 
-mka derp -j8 \
+blissify -g sakura \
 	&& send_zip=$(up out/target/product/sakura/*zip) && tg $id "Build Succeed!
 $send_zip" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h

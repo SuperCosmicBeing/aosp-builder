@@ -18,10 +18,10 @@ echo $a
 
 if [ $a = "yes" ]; then
         echo "Compressing and uploading ccache!"
-        time com ccache automated
-        time rclone copy automated.tar.gz gdrive:ccache -P
+        time com ccache bliss
+        time rclone copy bliss.tar.gz gdrive:ccache -P
         date +%c
-        sleep 25m
+        sleep 22m
 else
         echo "Skipped Uploading Ccache"
         sleep 25m
